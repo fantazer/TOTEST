@@ -1,0 +1,201 @@
+@import 'rupture'
+@import "variable/_function.styl"
+@import "variable/_fonts.styl"
+@import "variable/_ie.styl"
+@import "icon/sprite.css"
+@import "variable/_helper.styl"
+@import "variable/_default.styl"
+@import "variable/_elements.styl"
+@import "variable/_constant.styl"
+//@import "variable/_grid.styl"
+@import "../module/**/*"
+
+rupture.scale = 0 480px 768px 992px 1200px
+rupture.scale-names = 'xs' 'sm' 'md' 'lg'
+
+// Grid breakpoints
+$breakpoints = {
+	'xs' :  0,
+	'sm' : 480px,
+	'md' : 768px,
+	'lg' : 992px,
+	'xl' : 1200px
+}
+
+// Number of columns
+$columns = 12
+
+init($breakpoints, $columns)
+
+body
+	@extend .type--main
+	font-family $v-font
+	color $main-text-color
+	line-height 1.2
+	letter-spacing 0.01em
+
+.main-cont
+	center(1000px,10px)
+
+.b-wrap
+	position: absolute
+	top 0
+	left: 0
+	z-index: -1
+	opacity:0
+	flex(mid)
+	fw()
+.b-wrap--active
+	opacity: 1
+	position: relative
+	top initial
+	left initial
+	z-index: 3
+	transition all 1s
+.b-el
+	width: calc(25% - 20px)
+	margin: 10px
+	flex(between)
+	br(5px)
+	fl()
+	padding: 20px 20px 10px 20px
+	border: 1px solid #97cbef
+	position: relative
+	tr(all)
+	cp()
+	overflow: hidden
+	&:hover
+		background: #45ABF3
+		box-shadow 0 6px 18px #b6b8b9
+		border 0px
+		.b-el-title
+			color white
+		.b-el-price-val
+			color white
+			border 1px solid white
+		.b-el-text
+			color white
+			border-bottom 1px solid white
+		.b-el-attr__icon
+			.icon
+				fill white
+		.b-el-attr__val
+			color white
+		.b-el-title__top
+			color white
+.b-el-title
+	tr(all)
+	font-size: 26px
+	margin: 10px 0
+.b-el-price-val
+	tr(all)
+	br(10px)
+	font-weight:700
+	position: absolute
+	top 15px
+	right: 15px
+	font-size: 12px
+	padding: 5px 15px
+	border 1px solid #97cbef
+
+.b-el-text
+	tr(all)
+	font-size: 12px
+	color #4f4a4a
+	font-family: "PT Sans"
+	border-bottom: 1px solid #97cbef
+	padding-bottom: 15px
+.b-el-bottom
+	flex(between)
+
+.b-el-attr
+	f()
+	align-items: center
+.b-el-attr__icon
+	margin-right: 5px
+	.icon
+		size 15px
+		fill #97cbef
+
+.b-el-attr__val
+	font-size: 12px
+
+.b-el-cont
+	width: 100%
+	//background: whitesmoke
+
+.b-el-bottom
+	padding: 10px 0
+
+.b-el-title__top
+	font-size: 10px
+
+.b-el-name
+	f()
+	fl()
+	width: 100%
+	justify-content: center
+
+.container
+	margin: 100px 0
+	min-width 1000px
+
+.b-filter-head
+	flex(between)
+	fw()
+
+.b-filter-head__el
+	font-size: 12px
+	width: 24%
+	text-align: center
+	padding: 10px
+	border 1px solid #e8e8e8
+	margin-bottom: 10px
+	cp()
+
+
+.b-el-get-row
+	flex(between)
+
+.b-el-price
+	width: 48%
+	//background: #36a6ff
+	background: #1bb15e
+	color white
+	font-size: 14px!important
+	font-weight:bold
+	border 0!important
+	span
+		font-size: 10px
+
+.b-el-get
+	width: 48%
+
+
+.b-el-btn
+	up()
+	br(15px)
+	text-align: center
+	font-size: 12px
+	padding: 10px
+	border 1px solid #e8e8e8
+	//box-shadow 0px 5px 5px #e7e7e7
+
+.b-el--disable
+	position: absolute
+	top -1px
+	left: -1px
+	width: calc(100% + 2px)
+	height: calc(100% + 2px)
+	background: #fffffff2
+	z-index 5
+	flex(mid)
+.disable--text
+	up()
+	color black
+	font-size: 18px
+
+.b-filter-head__el--active
+	background: #45ABF3
+	color white
+
